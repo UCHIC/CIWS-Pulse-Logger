@@ -14,28 +14,91 @@ RTC RTC;
 MAG MAG;
 
 void setup() {
-  ///User interface
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600);
+  while (!Serial){digitalWrite(LED_BUILTIN, HIGH);}
+  digitalWrite(LED_BUILTIN, LOW);
   memory.EEPROMToFileName();
-  Serial.begin(115200);
-  while (!Serial){}
+  RTC.init();
+  RTC.RTCToFileName(memory.fileName);
+
+  ///Setup Site Number
+  Serial.print(F("Is "));
   Serial.print(memory.fileName[0]);
   Serial.print(memory.fileName[1]);
   Serial.print(memory.fileName[2]);
-  Serial.println(memory.fileName[3]);
-  Serial.println(F("Is this the correct site?"));
-
-  if(memory.fileName[4] == 255){ // set device id
-    
+  Serial.print(memory.fileName[3]);
+  Serial.println(F(" the correct site? y/n"));
+  while (!Serial.available()){}
+  if (Serial.read() == 'n')
+  {
+    Serial.println("Input four digit site number.");
+    for(int a = 0; a<4; a++)
+    {
+      while (!Serial.available()){}
+      char temp = Serial.read();
+      memory.fileName[a] = temp;
+      Serial.println(temp);
+    }
   }
 
-  RTC.RTCToFileName(memory.fileName);
+  ///Setup device ID
+  if(memory.fileName[25] == 255)
+  {
+    Serial.println(F("What is the device ID?"));
+    for(int a = 0; a<4; a++)
+    {
+      while (!Serial.available()){}
+      char temp = Serial.read();
+      memory.fileName[a+25] = temp;
+      Serial.println(temp);
+    }
+  }
+
+  ///Setup date and time
+  Serial.print(F("Is "));
+  for (int b = 5; b<24; b++){
+    Serial.print(memory.fileName[b]);
+  }
+  Serial.println(F(" the correct date and time? y/n"));
+  while (!Serial.available()){}
+  if (Serial.read() == 'n'){
+    int pos[13]= {7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 22, 23};
+    for(int a = 0; a<12; a++)
+    {
+      memory.fileName[pos[a]] = '-';
+    }
+    Serial.println(F("Input date and time."));
+    for (int b = 5; b<23; b++){
+      Serial.print(memory.fileName[b]);
+    }
+    Serial.println(memory.fileName[23]);
+    for(int a = 0; a<12; a++)
+    {
+      while (!Serial.available()){}
+      char temp = Serial.read();
+      memory.fileName[pos[a]] = temp;
+      for (int b = 5; b<23; b++){
+        Serial.print(memory.fileName[b]);
+      }
+      Serial.println(memory.fileName[23]);
+    }
+  }
+
+
+  memory.FileNameToEEPROM();
+  RTC.fileNameToRTC(memory.fileName);
   
-  ///Class setup
+  ///Class initialize
   RTC.init();
   MAG.init();
   memory.init();
 
   ///Pin Configuration
+//  DDRD  |=  0b00010000; //input/output
+//  DDRD  &=  0b11110001;
+//  PORTD =   0b00000000;//high or low
+//  PORTD =   0b00000000;
   pinMode(2, INPUT);
   pinMode(3, INPUT_PULLUP);
   pinMode(4, INPUT);
@@ -77,15 +140,9 @@ void loop() {
   if (newDay){
     Serial.println("newDay");
     newDay = false;
-    //enable sd mosphet
-    //power_spi_enable(); // SPI
     memory.writeToSD();
-    //disable sd mosphet
-    //power_spi_disable(); // SPI
-    //power_twi_enable(); // TWI (I2C)
     RTC.RTCToFileName(memory.fileName);
     RTC.stopAlarm();
-    //power_twi_disable(); // TWI (I2C)
   }
   
   if (newPulse){
@@ -93,21 +150,13 @@ void loop() {
     if(MAG.HZ != 560){
       MAG.HZto560();
     }
-    //digitalWrite(5, LOW);
     if(memory.addToBuffer(timer.pulseDiff(newPulse))){
-      //enable sd mosphet
-      //power_spi_enable(); // SPI
-      Serial.println("writeToSD");
       memory.writeToSD();
-      //disable sd mosphet
-      //power_spi_disable(); // SPI
     }
-    //digitalWrite(5, HIGH);
     newPulse = 0;
   }
 
   if (incrementTimer){
-    Serial.println("Timer Incremented");
     incrementTimer = false;
     timer.incrementKeeper();
     if(MAG.HZ != .625 && !timer.pulseInLastSecond()){ //Check MAG.HZ first to not waste time evaluating pulse in last second
@@ -116,16 +165,11 @@ void loop() {
   }
 
   if (!newPulse && !newDay && !incrementTimer){
-    digitalWrite(5, LOW);
-    noInterrupts ();           // timed sequence follows
-    // turn off brown-out enable in software
-    MCUCR = bit (BODS) | bit (BODSE);  // turn on brown-out enable select
-    MCUCR = bit (BODS);        // this must be done within 4 clock cycles of above
-    interrupts ();
+    //digitalWrite(5, LOW);
     set_sleep_mode (SLEEP_MODE_IDLE);  
     sleep_enable();
-    sleep_cpu ();
-    digitalWrite(5, HIGH);
+    sleep_cpu();
+    //digitalWrite(5, HIGH);
   }
 }
 

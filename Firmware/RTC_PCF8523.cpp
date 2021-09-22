@@ -33,6 +33,7 @@ uint8_t RTC::RTC_READ(uint8_t reg){
 }
 
 void RTC::RTCToFileName(char* fileName){
+  
   uint8_t seconds  = RTC_READ(Seconds);
   uint8_t minutes  = RTC_READ(Minutes);
   uint8_t hours    = RTC_READ(Hours);
@@ -40,16 +41,32 @@ void RTC::RTCToFileName(char* fileName){
   uint8_t months   = RTC_READ(Months);
   uint8_t years    = RTC_READ(Years);
   
-  fileName[7] = (char)(years >> 4);
-  fileName[8] = (char)(years & 0x0F);
-  fileName[10] = (char)(months >> 4);
-  fileName[11] = (char)(months & 0x0F);
-  fileName[13] = (char)(days >> 4);
-  fileName[14] = (char)(days & 0x0F);
-  fileName[16] = (char)(hours >> 4);
-  fileName[17] = (char)(hours & 0x0F);
-  fileName[19] = (char)(minutes >> 4);
-  fileName[20] = (char)(minutes & 0x0F);
-  fileName[22] = (char)(seconds >> 4);
-  fileName[23] = (char)(seconds & 0x0F);
+  fileName[7] = (years >> 4) + 48;
+  fileName[8] = (years & 0x0F) + 48;
+  fileName[10] = (months >> 4) + 48;
+  fileName[11] = (months & 0x0F) + 48;
+  fileName[13] = (days >> 4) + 48;
+  fileName[14] = (days & 0x0F) + 48;
+  fileName[16] = (hours >> 4) + 48;
+  fileName[17] = (hours & 0x0F) + 48;
+  fileName[19] = (minutes >> 4) + 48;
+  fileName[20] = (minutes & 0x0F) + 48;
+  fileName[22] = (seconds >> 4) + 48;
+  fileName[23] = (seconds & 0x0F) + 48;
+}
+
+void RTC::fileNameToRTC(char* fileName){
+  uint8_t years = ((fileName[8] - 48) & 0x0F) | ((fileName[7] - 48) << 4);
+  uint8_t months = ((fileName[11] - 48) & 0x0F) | ((fileName[10] - 48) << 4);
+  uint8_t days = ((fileName[14] - 48) & 0x0F) | ((fileName[13] - 48) << 4);
+  uint8_t hours = ((fileName[17] - 48) & 0x0F) | ((fileName[16] - 48) << 4);
+  uint8_t minutes = ((fileName[20] - 48) & 0x0F) | ((fileName[19] - 48) << 4);
+  uint8_t seconds = ((fileName[23] - 48) & 0x0F) | ((fileName[22] - 48) << 4);
+
+  RTC_WRITE(Seconds, seconds);
+  RTC_WRITE(Minutes, minutes);
+  RTC_WRITE(Hours, hours);
+  RTC_WRITE(Days, days);
+  RTC_WRITE(Months, months);
+  RTC_WRITE(Years, years);
 }
