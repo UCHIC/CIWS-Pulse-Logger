@@ -3,7 +3,6 @@
 #include <SD.h>
 #include <SPI.h>
 #include <EEPROM.h>
-#include "date_t.h"
 
 #define bufferSize 10
 
@@ -19,5 +18,5 @@ class memory{
   void init();
   bool addToBuffer(unsigned long milli);
   void EEPROMToFileName();
-  void writeToEEPROM(int pos, uint8_t value);
+  void FileNameToEEPROM();
 };

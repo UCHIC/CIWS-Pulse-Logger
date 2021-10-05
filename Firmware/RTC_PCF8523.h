@@ -11,7 +11,6 @@
 #include <avr/power.h>
 #include <Wire.h>
 #include "Arduino.h"
-#include "date_t.h"
 
 /*RTC TWI/I2C Address: 0x68*/
 #define DEV_ADDR  0x68
@@ -46,6 +45,7 @@ class RTC{
   void RTC_WRITE(uint8_t reg, uint8_t value);
   uint8_t RTC_READ(uint8_t reg);
   void RTCToFileName(char* fileName);
+  void fileNameToRTC(char* fileName);
 };
 
 #endif

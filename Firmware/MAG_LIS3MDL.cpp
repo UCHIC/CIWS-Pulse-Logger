@@ -56,15 +56,18 @@ void MAG::HZto560(){ // need to only incude instructions that are necisary
   MAG_WRITE(CTRL_REG4, 0x04);
   MAG_WRITE(CTRL_REG5, 0x80);
   MAG_WRITE(INT_CFG, 0b10001001);
+  HZ = 560;
 }
 
 void MAG::HZto0625(){ // need to only incude instructions that are necisary
+  Serial.println("Setting to 0.065 HZ");
   MAG_WRITE(CTRL_REG1, 0b00010000);
   MAG_WRITE(CTRL_REG2, 0b00000000);
   MAG_WRITE(CTRL_REG3, 0b00000000);
   MAG_WRITE(CTRL_REG4, 0b00000000);
   MAG_WRITE(CTRL_REG5, 0b00000000);
   MAG_WRITE(INT_CFG,   0b10001001);
+  HZ = .625;
 }
 
 void MAG::setThreshold(){
@@ -75,6 +78,7 @@ void MAG::setThreshold(){
   while (true){
     if (digitalRead(4)){
       temp = read_X();
+      Serial.println(temp);
       if (temp > highest || !highest){
         highest = temp;
       }

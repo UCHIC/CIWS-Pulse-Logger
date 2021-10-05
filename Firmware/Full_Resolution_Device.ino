@@ -15,13 +15,12 @@ MAG MAG;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);
-  while (!Serial){digitalWrite(LED_BUILTIN, HIGH);}
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_BUILTIN, HIGH);
+  Serial.begin(115200);
   memory.EEPROMToFileName();
   RTC.init();
   RTC.RTCToFileName(memory.fileName);
-
+  digitalWrite(LED_BUILTIN, LOW);
   ///Setup Site Number
   Serial.print(F("Is "));
   Serial.print(memory.fileName[0]);
@@ -122,7 +121,7 @@ void setup() {
   ADCSRA = 0; //disable ADC
   power_adc_disable(); // ADC converter
   //power_spi_disable(); // SPI
-  power_usart0_disable();// Serial (USART)
+  //power_usart0_disable();// Serial (USART)
   power_timer0_disable();// Timer 0
   //power_timer1_disable();// Timer 1
   power_timer2_disable();// Timer 2
@@ -169,6 +168,12 @@ void loop() {
     set_sleep_mode (SLEEP_MODE_IDLE);  
     sleep_enable();
     sleep_cpu();
+    noInterrupts ();           // timed sequence follows
+    // turn off brown-out enable in software
+    MCUCR = bit (BODS) | bit (BODSE);  // turn on brown-out enable select
+    MCUCR = bit (BODS);        // this must be done within 4 clock cycles of above
+    interrupts ();
+
     //digitalWrite(5, HIGH);
   }
 }
