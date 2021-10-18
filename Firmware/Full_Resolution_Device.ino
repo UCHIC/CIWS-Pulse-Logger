@@ -146,9 +146,9 @@ void loop() {
   
   if (newPulse){
     Serial.println("newPulse");
-    if(MAG.HZ != 560){
-      MAG.HZto560();
-    }
+    //if(MAG.HZ != 560){
+    //  MAG.HZto560();
+    //}
     if(memory.addToBuffer(timer.pulseDiff(newPulse))){
       memory.writeToSD();
     }

@@ -64,7 +64,7 @@ class MAG{
   float HZ = 0;
   MAG();              // replaces the original magnetometerInit() function
   void init();
-  int read_X();
+  int read_Y();
   void MAG_WRITE(uint8_t reg, uint8_t value);
   uint8_t MAG_READ(uint8_t reg);
   void setThreshold();
