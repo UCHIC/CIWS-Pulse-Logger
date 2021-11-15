@@ -6,10 +6,11 @@ memory::memory(){
 }
 
 void memory::writeToSD(){
+  //digitalWrite(5, HIGH);
   //power_spi_enable(); // SPI
-  SD.begin();
   //(const char *)fileName
   dataFile = SD.open("test4.txt", FILE_WRITE);
+  //digitalWrite(5, LOW);
   if (!dataFile){
     Serial.println("Failed to open");
   }
@@ -20,6 +21,7 @@ void memory::writeToSD(){
   dataFile.close();
   //power_spi_disable(); // SPI
   pos = 0;
+  //digitalWrite(5, LOW);
 //  pinMode(10, INPUT);
 //  pinMode(11, INPUT);
 //  pinMode(12, INPUT);
@@ -41,25 +43,23 @@ bool memory::addToBuffer(unsigned long milli){
 }
 
 void memory::EEPROMToFileName(){
-  fileName[25] = (char)EEPROM.read(0);
-  fileName[26] = (char)EEPROM.read(1);
-  fileName[27] = (char)EEPROM.read(2);
-  fileName[28] = (char)EEPROM.read(3);
+  site[0] = (char)EEPROM.read(0);
+  site[1] = (char)EEPROM.read(1);
+  site[2] = (char)EEPROM.read(2);
 
-  fileName[0] = (char)EEPROM.read(4);
-  fileName[1] = (char)EEPROM.read(5);
-  fileName[2] = (char)EEPROM.read(6);
-  fileName[3] = (char)EEPROM.read(7);
+  id[0] = (char)EEPROM.read(3);
+  id[1] = (char)EEPROM.read(4);
+  id[2] = (char)EEPROM.read(5);
+  id[3] = (char)EEPROM.read(6);
 }
 
 void memory::FileNameToEEPROM(){
-  EEPROM.write(0, (int)fileName[25]);
-  EEPROM.write(1, (int)fileName[26]);
-  EEPROM.write(2, (int)fileName[27]);
-  EEPROM.write(3, (int)fileName[28]);
+  EEPROM.write(0, (int)site[0]);
+  EEPROM.write(1, (int)site[1]);
+  EEPROM.write(2, (int)site[2]);
   
-  EEPROM.write(4, (int)fileName[0]);
-  EEPROM.write(5, (int)fileName[1]);
-  EEPROM.write(6, (int)fileName[2]);
-  EEPROM.write(7, (int)fileName[3]);
+  EEPROM.write(3, (int)id[0]);
+  EEPROM.write(4, (int)id[1]);
+  EEPROM.write(5, (int)id[2]);
+  EEPROM.write(6, (int)id[3]);
 }

@@ -4,7 +4,7 @@
 #include <SPI.h>
 #include <EEPROM.h>
 
-#define bufferSize 10
+#define bufferSize 1
 
 class memory{
   private:
@@ -12,7 +12,9 @@ class memory{
   int pos;
   File dataFile;
   public:
-  char fileName[29] = {'?','?','?','?','-','2','0','?','?','/','?','?','/','?','?','T','?','?',':','?','?',':','?','?','-','?','?','?','?'};
+  char fileName[19] = {'2','0','?','?','/','?','?','/','?','?','T','?','?',':','?','?',':','?','?'};
+  char site[3] = {'?','?','?'};
+  char id[4] = {'?','?','?','?'};  
   memory();
   void writeToSD();
   void init();

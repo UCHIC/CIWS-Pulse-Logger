@@ -19,8 +19,8 @@
 
 //#define Hz560
 //#define Hz300
-//#define Hz155
-#define Hz0.625
+#define Hz155
+//#define Hz0.625
 
 /* Device Address */
 #define MAG_ADDR 0x1E
@@ -62,12 +62,15 @@
 class MAG{
   public:
   float HZ = 0;
+  int16_t highthres;
+  int16_t lowthres;
   MAG();              // replaces the original magnetometerInit() function
   void init();
   int read_Y();
   void MAG_WRITE(uint8_t reg, uint8_t value);
   uint8_t MAG_READ(uint8_t reg);
   void setThreshold();
+  void changeThreshold();
   void HZto0625();
   void HZto560();
   unsigned long throttleHZ(unsigned long milli);

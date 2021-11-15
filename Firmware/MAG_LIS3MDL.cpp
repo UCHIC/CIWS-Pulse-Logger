@@ -71,10 +71,12 @@ void MAG::HZto0625(){ // need to only incude instructions that are necisary
 }
 
 void MAG::setThreshold(){
-  signed int highest = 0;
-  signed int lowest = 0;
-  int16_t temp;
-  for (int a = 0; a < 200; a++){
+  while(!digitalRead(4)){}
+  int16_t temp = read_Y();
+  int16_t highest = temp;
+  int16_t lowest = temp;
+  while(digitalRead(4)){}
+  for (int a = 0; a < 1000; a++){
     while(!digitalRead(4)){}
     temp = read_Y();
     Serial.println(temp);
@@ -84,34 +86,32 @@ void MAG::setThreshold(){
     if (temp < lowest){
       lowest = temp;
     }
-  
-//  while (true){
-//    if (digitalRead(4)){
-//      temp = read_Y();
-//      Serial.println(temp);
-//      if (temp > highest || !highest){
-//        highest = temp;
-//      }
-//      else{
-//        if (temp < lowest || !lowest){
-//          lowest = temp;
-//        }
-//        else{
-//          break;
-//        }
-//      }
-//    }
-//    else{
-//      delay(10);
-//    }
+    while(digitalRead(4)){}
   }
-  int16_t threshold = ((lowest + highest) / 2);
-  Serial.print("Threshold:");
-  Serial.println(threshold);
-  MAG_WRITE(INT_THS_L, (threshold & 0b11111111));
-  MAG_WRITE(INT_THS_H, (threshold >> 8));
-  while(digitalRead(4)){}
+  highthres = ((highest - lowest) * .8) + lowest;
+  lowthres = ((highest - lowest) * .2) + lowest;
+  //Serial.print("High Threshold:");
+  //Serial.println(highthres);
+  //Serial.print("Low Threshold:");
+  //Serial.println(lowthres);
+  MAG_WRITE(INT_THS_L, (highthres & 0b11111111));
+  MAG_WRITE(INT_THS_H, (highthres >> 8));
+  //Serial.println("Finished Threshold Set");
 }
+
+void MAG::changeThreshold(){
+  if (!digitalRead(2)){
+    MAG_WRITE(INT_THS_H, (lowthres >> 8) & 0b01111111);
+    MAG_WRITE(INT_THS_L, (lowthres & 0b11111111));
+  }
+  else {
+    //digitalWrite(5, HIGH);
+    MAG_WRITE(INT_THS_H, (highthres >> 8) & 0b01111111);
+    MAG_WRITE(INT_THS_L, (highthres & 0b11111111));
+    //digitalWrite(5, LOW);
+  }
+}
+
 
 int16_t MAG::read_Y()
 {
