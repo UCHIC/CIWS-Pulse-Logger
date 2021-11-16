@@ -39,7 +39,7 @@ void MAG::init(){
     HZ = 155;
   #endif
   #ifdef Hz0.625
-    MAG_WRITE(CTRL_REG1, 0b00010000);
+    MAG_WRITE(CTRL_REG1, 0b00000000);
     MAG_WRITE(CTRL_REG2, 0b00000000);
     MAG_WRITE(CTRL_REG3, 0b00000000);
     MAG_WRITE(CTRL_REG4, 0b00000000);
@@ -61,7 +61,7 @@ void MAG::HZto560(){ // need to only incude instructions that are necisary
 
 void MAG::HZto0625(){ // need to only incude instructions that are necisary
   Serial.println("Setting to 0.065 HZ");
-  MAG_WRITE(CTRL_REG1, 0b00010000);
+  MAG_WRITE(CTRL_REG1, 0b00000000);
   MAG_WRITE(CTRL_REG2, 0b00000000);
   MAG_WRITE(CTRL_REG3, 0b00000000);
   MAG_WRITE(CTRL_REG4, 0b00000000);
@@ -76,7 +76,7 @@ void MAG::setThreshold(){
   int16_t highest = temp;
   int16_t lowest = temp;
   while(digitalRead(4)){}
-  for (int a = 0; a < 1000; a++){
+  for (int a = 0; a < 5000; a++){
     while(!digitalRead(4)){}
     temp = read_Y();
     Serial.println(temp);
