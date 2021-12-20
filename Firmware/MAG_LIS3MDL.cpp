@@ -76,7 +76,7 @@ void MAG::setThreshold(){
   int16_t highest = temp;
   int16_t lowest = temp;
   while(digitalRead(4)){}
-  for (int a = 0; a < 5000; a++){
+  for (int a = 0; a < 1000; a++){
     while(!digitalRead(4)){}
     temp = read_Y();
     Serial.println(temp);
@@ -88,8 +88,10 @@ void MAG::setThreshold(){
     }
     while(digitalRead(4)){}
   }
-  highthres = ((highest - lowest) * .8) + lowest;
-  lowthres = ((highest - lowest) * .2) + lowest;
+  highthres = ((highest - lowest) * .7) + lowest;
+  lowthres = ((highest - lowest) * .3) + lowest;
+  //highthres = ((highest + lowest)/2);
+  //lowthres = ((highest + lowest)/2);
   //Serial.print("High Threshold:");
   //Serial.println(highthres);
   //Serial.print("Low Threshold:");

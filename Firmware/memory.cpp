@@ -9,16 +9,16 @@ void memory::writeToSD(){
   //digitalWrite(5, HIGH);
   //power_spi_enable(); // SPI
   //(const char *)fileName
-  dataFile = SD.open("test4.txt", FILE_WRITE);
   //digitalWrite(5, LOW);
   if (!dataFile){
     Serial.println("Failed to open");
   }
   for(int a = 0; a < pos; a++){
     Serial.println(Buffer[a]);
-    dataFile.println(Buffer[a]);
+    Serial.print("Number of bytes written: ");
+    Serial.println(dataFile.println(Buffer[a]), DEC);
   }
-  dataFile.close();
+  dataFile.flush();
   //power_spi_disable(); // SPI
   pos = 0;
   //digitalWrite(5, LOW);
@@ -32,8 +32,29 @@ void memory::writeToSD(){
 //  digitalWrite(13, LOW);
 }
 
-void memory::init(){
+void memory::initSD(){
+  if (dataFile){
+    dataFile.close();
+  }
   SD.begin();
+  char f[13] = {site[0],site[1],site[2],'_',fileName[5],fileName[6],fileName[8],fileName[9],'.','t','x','t','\0'};
+//  char test[9];
+//  String str = "file.txt";
+//  str.toCharArray(test, 9);
+//  Serial.print("char array: ");
+//  Serial.println(test);
+//  if (test == f){
+//    Serial.println("They are equal");
+//  }
+//  Serial.print("Null Char: ");
+//  Serial.println(test[8]);
+  dataFile = SD.open(f, FILE_WRITE); //should at some point open the file associated with the date and site
+}
+
+void memory::putHeader(){
+  dataFile.println(fileName);
+  dataFile.println(site);
+  dataFile.println(id[0]+id[1]+id[2]);
 }
 
 bool memory::addToBuffer(unsigned long milli){

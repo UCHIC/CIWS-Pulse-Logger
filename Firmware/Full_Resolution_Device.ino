@@ -91,7 +91,7 @@ void setup() {
   ///Class initialize
   RTC.init();
   MAG.init();
-  memory.init();
+  memory.initSD();
 
   MAG.setThreshold();
 
@@ -104,7 +104,7 @@ void setup() {
   pinMode(3, INPUT_PULLUP);
   pinMode(4, INPUT);
   pinMode(5, OUTPUT); //Is asleep
-  digitalWrite(5, HIGH);
+  digitalWrite(5, LOW);
   attachInterrupt(digitalPinToInterrupt(2), MAG_INT, CHANGE);
   attachInterrupt(digitalPinToInterrupt(3), RTC_INT, FALLING);
 
@@ -123,7 +123,7 @@ void setup() {
   power_adc_disable(); // ADC converter
   //power_spi_disable(); // SPI
   //power_usart0_disable();// Serial (USART)
-  power_timer0_disable();// Timer 0
+  //power_timer0_disable();// Timer 0
   //power_timer1_disable();// Timer 1
   power_timer2_disable();// Timer 2
   //power_twi_disable(); // TWI (I2C)
@@ -145,20 +145,26 @@ void loop() {
     RTC.RTCToFileName(memory.fileName);
     RTC.stopAlarm();
     timer.restartTimer();
+    memory.initSD();
+    //memory.putHeader();
   }
   
   if (newPulse){
-    Serial.println("newPulse");
+    //Serial.println("newPulse");
     //if(MAG.HZ != 560){
     //  MAG.HZto560();
     //}
+    //unsigned long temp = millis();
     digitalWrite(5, HIGH);
     MAG.changeThreshold();
-    digitalWrite(5, LOW);
     if(digitalRead(2) && memory.addToBuffer(timer.pulseDiff(newPulse))){
+      Serial.println("In write to sd if statetment");
       memory.writeToSD();
     }
     newPulse = 0;
+    //Serial.print("Duration:");
+    //Serial.println(millis()-temp);
+    digitalWrite(5, LOW);
   }
 
   if (incrementTimer){

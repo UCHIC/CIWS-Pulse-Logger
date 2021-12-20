@@ -17,9 +17,9 @@
 
 /*========= MACROS =========*/
 
-#define Hz560
+//#define Hz560
 //#define Hz300
-//#define Hz155
+#define Hz155
 //#define Hz0.625
 
 /* Device Address */

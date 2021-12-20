@@ -17,7 +17,8 @@ class memory{
   char id[4] = {'?','?','?','?'};  
   memory();
   void writeToSD();
-  void init();
+  void initSD();
+  void putHeader();
   bool addToBuffer(unsigned long milli);
   void EEPROMToFileName();
   void FileNameToEEPROM();
