@@ -2,8 +2,6 @@
 #include <Arduino.h>
 
 timer::timer(){
-  timekeeper = 0;
-  last = 0;
 }
 
 void timer::restartTimer(){
@@ -20,13 +18,31 @@ void timer::restartTimer(){
   TCCR1B |= (1 << CS12) | (0 << CS11) | (1 << CS10);
   // enable timer compare interrupt
   TIMSK1 |= (1 << OCIE1A);
+  timekeeper = 0;
+  last = 0;
   sei(); // allow interrupts
 }
 
 unsigned long timer::pulseDiff(uint16_t timerReg){
   next = (timekeeper + (timerReg / 7.8125));
+  Serial.print("Last:");
+  Serial.println(last);
+  Serial.print("Next:");
+  Serial.println(next);
+  Serial.print("Temp:");
+  Serial.println(temp);
+  Serial.print("Timekeeper:");
+  Serial.println(timekeeper);
   temp = next - last;
   last = next;
+  Serial.print("Last:");
+  Serial.println(last);
+  Serial.print("Next:");
+  Serial.println(next);
+  Serial.print("Temp:");
+  Serial.println(temp);
+  Serial.print("Timekeeper:");
+  Serial.println(timekeeper);
   return temp;
 }
 

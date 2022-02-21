@@ -44,8 +44,8 @@ class RTC{
   void stopAlarm();
   void RTC_WRITE(uint8_t reg, uint8_t value);
   uint8_t RTC_READ(uint8_t reg);
-  void RTCToFileName(char* fileName);
-  void fileNameToRTC(char* fileName);
+  void RTCToDateTime(char* fileName);
+  void DateTimeToRTC(char* fileName);
 };
 
 #endif

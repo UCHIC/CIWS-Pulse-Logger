@@ -12,14 +12,14 @@ class memory{
   int pos;
   File dataFile;
   public:
-  char fileName[19] = {'2','0','?','?','/','?','?','/','?','?','T','?','?',':','?','?',':','?','?'};
-  char site[3] = {'?','?','?'};
+  char DateTime[20] = {'2','0','?','?','/','?','?','/','?','?','T','?','?',':','?','?',':','?','?','\0'};
+  char site[4] = {'?','?','?','\0'};
   char id[4] = {'?','?','?','?'};  
   memory();
   void writeToSD();
   void initSD();
   void putHeader();
   bool addToBuffer(unsigned long milli);
-  void EEPROMToFileName();
-  void FileNameToEEPROM();
+  void EEPROMToMemory();
+  void MemoryToEEPROM();
 };

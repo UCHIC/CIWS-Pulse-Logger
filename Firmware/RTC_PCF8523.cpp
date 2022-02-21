@@ -32,7 +32,7 @@ uint8_t RTC::RTC_READ(uint8_t reg){
   return Wire.read();
 }
 
-void RTC::RTCToFileName(char* fileName){
+void RTC::RTCToDateTime(char* fileName){
 
   //Serial.println("Entered RTCToFileName");
   uint8_t seconds  = RTC_READ(Seconds);
@@ -89,7 +89,7 @@ void RTC::RTCToFileName(char* fileName){
 //  Serial.println("Exited RTCToFileName");
 }
 
-void RTC::fileNameToRTC(char* fileName){
+void RTC::DateTimeToRTC(char* fileName){
 //  Serial.println("Entered fileNameToRTC");
   uint8_t years = ((fileName[3] - 48) & 0x0F) | ((fileName[2] - 48) << 4);
   uint8_t months = ((fileName[6] - 48) & 0x0F) | ((fileName[5] - 48) << 4);

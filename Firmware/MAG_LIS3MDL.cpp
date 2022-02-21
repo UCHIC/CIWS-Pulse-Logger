@@ -17,7 +17,7 @@ void MAG::init(){
     MAG_WRITE(CTRL_REG3, 0x00);
     MAG_WRITE(CTRL_REG4, 0x04);
     MAG_WRITE(CTRL_REG5, 0x80);
-    MAG_WRITE(INT_CFG, 0b01001001);
+    MAG_WRITE(INT_CFG, 0b00101001);
     HZ = 560;
   #endif
   #ifdef Hz300
@@ -26,7 +26,7 @@ void MAG::init(){
     MAG_WRITE(CTRL_REG3, 0x00);
     MAG_WRITE(CTRL_REG4, 0x08);
     MAG_WRITE(CTRL_REG5, 0x80);
-    MAG_WRITE(INT_CFG, 0b01001001);
+    MAG_WRITE(INT_CFG, 0b00101001);
     HZ = 300;
   #endif
   #ifdef Hz155
@@ -35,7 +35,7 @@ void MAG::init(){
     MAG_WRITE(CTRL_REG3, 0x00);
     MAG_WRITE(CTRL_REG4, 0x0C);
     MAG_WRITE(CTRL_REG5, 0x80);
-    MAG_WRITE(INT_CFG, 0b01001001);
+    MAG_WRITE(INT_CFG, 0b00101001);
     HZ = 155;
   #endif
   #ifdef Hz0.625
@@ -44,7 +44,7 @@ void MAG::init(){
     MAG_WRITE(CTRL_REG3, 0b00000000);
     MAG_WRITE(CTRL_REG4, 0b00000000);
     MAG_WRITE(CTRL_REG5, 0b00000000);
-    MAG_WRITE(INT_CFG,   0b01001001);
+    MAG_WRITE(INT_CFG,   0b00101001);
     HZ = .625;
   #endif
 }
@@ -55,7 +55,7 @@ void MAG::HZto560(){ // need to only incude instructions that are necisary
   MAG_WRITE(CTRL_REG3, 0x00);
   MAG_WRITE(CTRL_REG4, 0x04);
   MAG_WRITE(CTRL_REG5, 0x80);
-  MAG_WRITE(INT_CFG, 0b01001001);
+  MAG_WRITE(INT_CFG, 0b00101001);
   HZ = 560;
 }
 
@@ -66,7 +66,7 @@ void MAG::HZto0625(){ // need to only incude instructions that are necisary
   MAG_WRITE(CTRL_REG3, 0b00000000);
   MAG_WRITE(CTRL_REG4, 0b00000000);
   MAG_WRITE(CTRL_REG5, 0b00000000);
-  MAG_WRITE(INT_CFG,   0b01001001);
+  MAG_WRITE(INT_CFG,   0b00101001);
   HZ = .625;
 }
 
@@ -88,8 +88,14 @@ void MAG::setThreshold(){
     }
     while(digitalRead(4)){}
   }
-  highthres = ((highest - lowest) * .7) + lowest;
-  lowthres = ((highest - lowest) * .3) + lowest;
+  if (highest > 0){
+    highthres = abs(((highest - lowest) * .7) + lowest);
+    lowthres = abs(((highest - lowest) * .3) + lowest);
+  }
+  else{
+    lowthres = abs(((highest - lowest) * .7) + lowest);
+    highthres = abs(((highest - lowest) * .3) + lowest);
+  }
   //highthres = ((highest + lowest)/2);
   //lowthres = ((highest + lowest)/2);
   //Serial.print("High Threshold:");
@@ -117,8 +123,8 @@ void MAG::changeThreshold(){
 
 int16_t MAG::read_Y()
 {
-  uint8_t high = MAG_READ(OUT_Y_H);
-  uint8_t low = MAG_READ(OUT_Y_L);
+  uint8_t high = MAG_READ(OUT_Z_H);
+  uint8_t low = MAG_READ(OUT_Z_L);
   return (high << 8 | low);
 }
 
