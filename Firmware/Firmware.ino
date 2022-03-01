@@ -103,7 +103,6 @@ void setup() {
   ///Inturrupt Configuration
   attachInterrupt(digitalPinToInterrupt(2), MAG_INT, CHANGE);
   attachInterrupt(digitalPinToInterrupt(3), RTC_INT, FALLING);
-  while(true){}
   ///Power use minimization
   ADCSRA = 0; //disable ADC
   power_adc_disable(); // ADC converter

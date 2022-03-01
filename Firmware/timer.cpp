@@ -25,24 +25,24 @@ void timer::restartTimer(){
 
 unsigned long timer::pulseDiff(uint16_t timerReg){
   next = (timekeeper + (timerReg / 7.8125));
-  Serial.print("Last:");
-  Serial.println(last);
-  Serial.print("Next:");
-  Serial.println(next);
-  Serial.print("Temp:");
-  Serial.println(temp);
-  Serial.print("Timekeeper:");
-  Serial.println(timekeeper);
+//  Serial.print("Last:");
+//  Serial.println(last);
+//  Serial.print("Next:");
+//  Serial.println(next);
+//  Serial.print("Temp:");
+//  Serial.println(temp);
+//  Serial.print("Timekeeper:");
+//  Serial.println(timekeeper);
   temp = next - last;
   last = next;
-  Serial.print("Last:");
-  Serial.println(last);
-  Serial.print("Next:");
-  Serial.println(next);
-  Serial.print("Temp:");
-  Serial.println(temp);
-  Serial.print("Timekeeper:");
-  Serial.println(timekeeper);
+//  Serial.print("Last:");
+//  Serial.println(last);
+//  Serial.print("Next:");
+//  Serial.println(next);
+//  Serial.print("Temp:");
+//  Serial.println(temp);
+//  Serial.print("Timekeeper:");
+//  Serial.println(timekeeper);
   return temp;
 }
 
