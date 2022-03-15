@@ -33,7 +33,7 @@ P 2380 3545
 F 0 "U1" H 2380 1956 50  0000 C CNN
 F 1 "ATmega328P-AU" H 2380 1865 50  0000 C CNN
 F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 2380 3545 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 2380 3545 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/microchip-technology/ATMEGA328P-AU/1832260" H 2380 3545 50  0001 C CNN
 	1    2380 3545
 	1    0    0    -1  
 $EndComp
@@ -136,7 +136,7 @@ P 5500 2180
 F 0 "J2" H 5450 2897 50  0000 C CNN
 F 1 "Micro_SD_Card" H 5450 2806 50  0000 C CNN
 F 2 "Connector_Card:microSD_HC_Wuerth_693072010801" H 6650 2480 50  0001 C CNN
-F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 5500 2180 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/693072010801/3124584?s=N4IgTCBcDaIGwE4DMAGA7GFBGFAObIAugL5A" H 5500 2180 50  0001 C CNN
 	1    5500 2180
 	1    0    0    -1  
 $EndComp
@@ -147,7 +147,7 @@ P 5370 4500
 F 0 "U2" H 5914 4546 50  0000 L CNN
 F 1 "PCF8523T" H 5914 4455 50  0000 L CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6170 4150 50  0001 C CNN
-F 3 "https://www.nxp.com/docs/en/data-sheet/PCF8523.pdf" H 5370 4500 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/nxp-usa-inc/PCF8523T-1-118/2530422" H 5370 4500 50  0001 C CNN
 	1    5370 4500
 	1    0    0    -1  
 $EndComp
@@ -280,7 +280,7 @@ P 3165 1540
 F 0 "J5" H 2835 1544 50  0000 R CNN
 F 1 "ISP" H 2835 1635 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" V 2915 1590 50  0001 C CNN
-F 3 " ~" H 1890 990 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/amphenol-icc-(fci)/67996-206HLF/1878485?utm_adgroup=Connectors%20and%20Interconnects&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Supplier_Amphenol%20FCI_0609_Co-op&utm_term=&utm_content=Connectors%20and%20Interconnects&gclid=CjwKCAjw8sCRBhA6EiwA6_IF4WdhNiqC6ib0S6sQPX_n5eIzo6fjm35xQ_nPJGR1p3m21aTR2Pd50hoCNB0QAvD_BwE" H 1890 990 50  0001 C CNN
 	1    3165 1540
 	0    1    1    0   
 $EndComp
@@ -315,7 +315,7 @@ P 5270 3790
 F 0 "R1" H 5338 3836 50  0000 L CNN
 F 1 "1k" H 5338 3745 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" V 5310 3780 50  0001 C CNN
-F 3 "~" H 5270 3790 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/yageo/AC0805FR-101KL/14286726" H 5270 3790 50  0001 C CNN
 	1    5270 3790
 	1    0    0    -1  
 $EndComp
@@ -455,7 +455,7 @@ P 3460 3845
 F 0 "R2" V 3255 3845 50  0000 C CNN
 F 1 "10k" V 3346 3845 50  0000 C CNN
 F 2 "LED_SMD:LED_0805_2012Metric_Castellated" V 3500 3835 50  0001 C CNN
-F 3 "~" H 3460 3845 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RNCP0805FTD10K0/2240262" H 3460 3845 50  0001 C CNN
 	1    3460 3845
 	0    1    1    0   
 $EndComp
@@ -564,7 +564,7 @@ P 5470 5940
 F 0 "J4" H 5498 5966 50  0000 L CNN
 F 1 "Conn_01x09_Female" H 5498 5875 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 5470 5940 50  0001 C CNN
-F 3 "~" H 5470 5940 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61301611121/4846854?utm_adgroup=Rectangular%20Connectors%20-%20Headers%2C%20Male%20Pins&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Connectors%2C%20Interconnects&utm_term=&utm_content=Rectangular%20Connectors%20-%20Headers%2C%20Male%20Pins&gclid=CjwKCAjw8sCRBhA6EiwA6_IF4QIyq7tvweOHD4ZxKWrC-QYRubXGeTv1Tm1ChI4jTWYohvBzQXjItRoCXQ4QAvD_BwE" H 5470 5940 50  0001 C CNN
 	1    5470 5940
 	1    0    0    -1  
 $EndComp
@@ -575,7 +575,7 @@ P 4905 6835
 F 0 "J6" V 4777 7115 50  0000 L CNN
 F 1 "Screw_Terminal_01x06" V 4868 7115 50  0000 L CNN
 F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-0,5-6-2.54_1x06_P2.54mm_Horizontal" H 4905 6835 50  0001 C CNN
-F 3 "~" H 4905 6835 50  0001 C CNN
+F 3 "https://www.digikey.com/en/products/detail/phoenix-contact/1725698/267466" H 4905 6835 50  0001 C CNN
 	1    4905 6835
 	0    1    1    0   
 $EndComp
