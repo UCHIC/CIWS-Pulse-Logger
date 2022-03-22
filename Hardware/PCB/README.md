@@ -13,4 +13,4 @@ If all the files required by your manufacturer are there, download the `.zip` fi
 
 If your manufacturer has questions about parts direct them to the [parts csv](https://github.com/UCHIC/CIWS-Pulse-Logger/blob/main/Hardware/PCB/KiCad/parts_list.csv).
 
-If additional files are needed open the `.pro` [file]() in KiCad and follow your manufatures instructions for generating fabrication files.
+If additional fabrication files are needed download the files in [Hardware/PCB/KiCad/ProjectFiles](https://github.com/UCHIC/CIWS-Pulse-Logger/tree/main/Hardware/PCB/KiCad/ProjectFiles). In KiCad open the `.pro` file and follow your manufatures instructions for generating fabrication files.
