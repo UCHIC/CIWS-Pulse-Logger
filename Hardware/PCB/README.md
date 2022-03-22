@@ -1,6 +1,7 @@
 # Full Resolution PCB Board
 Instructions and parts for manufacturing a full resolution pcb board.
 
+<img src ="https://github.com/UCHIC/CIWS-Pulse-Logger/blob/main/Hardware/PCB/PCB-right.png" width=600 height=500>
 <img src ="https://github.com/UCHIC/CIWS-Pulse-Logger/blob/main/Hardware/PCB/PCB-left.png" width=600 height=500>
 
 ## Parts List
