@@ -10,10 +10,10 @@ Qty,Reference(s),Value,Part URL
 1,U2,RTC,https://www.digikey.com/en/products/detail/adafruit-industries-llc/3295/6238007?utm_adgroup=Evaluation%20and%20Demonstration%20Boards%20and%20Kits&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Development%20Boards%2C%20Kits%2C%20Programmers&utm_term=&utm_content=Evaluation%20and%20Demonstration%20Boards%20and%20Kits&gclid=Cj0KCQjw5-WRBhCKARIsAAId9FnegL0F7tVgiTf6Nfz2l2aqIMtOLhRnilNLyjMopPU9tEeg540NGhAaApBDEALw_wcB
 1,Y1,8Mhz,https://www.digikey.com/en/products/detail/ndk-america-inc/NX8045GB-8-000M-STD-CSF-4/5022982
 1,B1,Board,https://www.digikey.com/en/products/detail/adafruit-industries-llc/1609/5353655?utm_adgroup=Prototype%20Boards%20Perforated&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Prototyping%2C%20Fabrication%20Products&utm_term=&utm_content=Prototype%20Boards%20Perforated&gclid=Cj0KCQjw5-WRBhCKARIsAAId9Flyl8kkiSonT_LOCjdixTtK4kLTTgeD_3O_Tpq1SuZvoEPG-ncUrLsaAqHOEALw_wcB
-,,Wire,
-,,Cable,
-,,Box,
-,,Magnetometer,
-,,MAG box,
-,,Battery,
-,,Voltage Regulator,
+1,,Wire,
+1,,Cable,
+1,,Box,https://www.pelican.com/us/en/product/cases/protector/1120?sku=1120-000-110&gclid=Cj0KCQjw5-WRBhCKARIsAAId9FnQl2oT86aUSS6vJmOc0RLXQkDRlFH7UusZyivfxC3zP6lEKiln3ycaAtLREALw_wcB
+1,,Magnetometer,https://www.digikey.com/en/products/detail/pololu-corporation/2737/10451120
+1,,MAG box,
+1,,Battery,
+1,,Voltage Regulator,
