@@ -113,10 +113,8 @@ void MAG::changeThreshold(){
     MAG_WRITE(INT_THS_L, (lowthres & 0b11111111));
   }
   else {
-    //digitalWrite(5, HIGH);
     MAG_WRITE(INT_THS_H, (highthres >> 8) & 0b01111111);
     MAG_WRITE(INT_THS_L, (highthres & 0b11111111));
-    //digitalWrite(5, LOW);
   }
 }
 
