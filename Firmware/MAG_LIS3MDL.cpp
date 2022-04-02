@@ -89,12 +89,12 @@ void MAG::setThreshold(){
     while(digitalRead(4)){}
   }
   if (highest > 0){
-    highthres = abs(((highest - lowest) * .7) + lowest);
-    lowthres = abs(((highest - lowest) * .3) + lowest);
+    highthres = abs(((highest - lowest) * .85) + lowest);
+    lowthres = abs(((highest - lowest) * .15) + lowest);
   }
   else{
-    lowthres = abs(((highest - lowest) * .7) + lowest);
-    highthres = abs(((highest - lowest) * .3) + lowest);
+    lowthres = abs(((highest - lowest) * .85) + lowest);
+    highthres = abs(((highest - lowest) * .15) + lowest);
   }
   //highthres = ((highest + lowest)/2);
   //lowthres = ((highest + lowest)/2);
