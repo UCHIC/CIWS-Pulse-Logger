@@ -1,4 +1,4 @@
-# CIWS-Pulse-Logger
+# CIWS-Pulse-Datalogger
 
 This repository contains hardware and software designs for the Pulse-Datalogger, a device that can be used to collect high resolution water use data on magnetically-driven residential water meters. The datalogger is designed to read magnetic field information from a magnetometer sensor attached to a magnetically-driven, positive-displacement water meter. 
 
