@@ -20,8 +20,8 @@ These instructions use the reference names in the parts csv. The hole identifier
 11. Attach C3 to B1 and B4.
 12. Place B2 into the battery holder on IC2.
 13. Connect the following positions with wire.
-*GND-J7
--VCC-J9
+*GND,J7
+-VCC,J9
 -GND-J17
 -VCC-J15
 -GND-J28
