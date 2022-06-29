@@ -1,19 +1,14 @@
-Qty,Reference(s),Value,Part URL
-2,"C1, C2",16pF,https://www.digikey.com/en/products/detail/kyocera-avx/08051A160JAT2A/1600914
-1,C3,3.3uF,https://www.digikey.com/en/products/detail/tdk-corporation/C2012JB1C335K125AC/3948680
-1,J1,POWER_Terminal,https://www.digikey.com/en/products/detail/phoenix-contact/1725656/267462
-1,J2,MICRO SD,https://www.digikey.com/en/products/detail/sparkfun-electronics/BOB-00544/5824094?utm_adgroup=Adapter%2C%20Breakout%20Boards&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Prototyping%2C%20Fabrication%20Products&utm_term=&utm_content=Adapter%2C%20Breakout%20Boards&gclid=Cj0KCQjw5-WRBhCKARIsAAId9FlXQvZjG7p5SzZj_VftVAlajqffF75inld1E54i03rfDlhZIpF3_L4aAmH7EALw_wcB
-1,J3,Conn_01x06_Female,https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61301611121/4846854?utm_adgroup=Rectangular%20Connectors%20-%20Headers%2C%20Male%20Pins&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Connectors%2C%20Interconnects&utm_term=&utm_content=Rectangular%20Connectors%20-%20Headers%2C%20Male%20Pins&gclid=CjwKCAjw8sCRBhA6EiwA6_IF4QIyq7tvweOHD4ZxKWrC-QYRubXGeTv1Tm1ChI4jTWYohvBzQXjItRoCXQ4QAvD_BwE
-1,J6,Screw_Terminal_01x06,https://www.digikey.com/en/products/detail/phoenix-contact/1725698/267466
-1,SW1,RESET Button,https://www.digikey.com/en/products/detail/omron-electronics-inc-emc-div/B3F-1020/44059?utm_adgroup=Switches&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Supplier_Omron%20EMC_0039_Co-op&utm_term=&utm_content=Switches&gclid=Cj0KCQiAxoiQBhCRARIsAPsvo-xLaLRuc0nxEl4-8aP-8P-m5A10gvuCrbHmQW7Fmg3Fe4HuBPG-VAgaApeeEALw_wcB
-1,U1,ATmega328P-PU,https://www.digikey.com/en/products/detail/microchip-technology/ATMEGA328P-PU/1914589
-1,U2,RTC,https://www.digikey.com/en/products/detail/adafruit-industries-llc/3295/6238007?utm_adgroup=Evaluation%20and%20Demonstration%20Boards%20and%20Kits&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Development%20Boards%2C%20Kits%2C%20Programmers&utm_term=&utm_content=Evaluation%20and%20Demonstration%20Boards%20and%20Kits&gclid=Cj0KCQjw5-WRBhCKARIsAAId9FnegL0F7tVgiTf6Nfz2l2aqIMtOLhRnilNLyjMopPU9tEeg540NGhAaApBDEALw_wcB
-1,Y1,8Mhz,https://www.digikey.com/en/products/detail/ndk-america-inc/NX8045GB-8-000M-STD-CSF-4/5022982
-1,B1,Board,https://www.digikey.com/en/products/detail/adafruit-industries-llc/1609/5353655?utm_adgroup=Prototype%20Boards%20Perforated&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Prototyping%2C%20Fabrication%20Products&utm_term=&utm_content=Prototype%20Boards%20Perforated&gclid=Cj0KCQjw5-WRBhCKARIsAAId9Flyl8kkiSonT_LOCjdixTtK4kLTTgeD_3O_Tpq1SuZvoEPG-ncUrLsaAqHOEALw_wcB
-1,,Wire,
-1,,Cable,
-1,,Box,https://www.pelican.com/us/en/product/cases/protector/1120?sku=1120-000-110&gclid=Cj0KCQjw5-WRBhCKARIsAAId9FnQl2oT86aUSS6vJmOc0RLXQkDRlFH7UusZyivfxC3zP6lEKiln3ycaAtLREALw_wcB
-1,,Magnetometer,https://www.digikey.com/en/products/detail/pololu-corporation/2737/10451120
-1,,MAG box,
-1,,Battery,
-1,,Voltage Regulator,
+Name,Qty,Reference(s),Value,Part URL
+Microcontroller,1,IC1,Atmega328P,https://www.adafruit.com/product/123
+RTC,1,IC2,Adafruit PCF8523,https://www.adafruit.com/product/3295
+SD Slot,1,IC3,BOB-00544,https://www.digikey.com/en/products/detail/sparkfun-electronics/BOB-00544/5824094?utm_adgroup=Adapter%2C%20Breakout%20Boards&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Prototyping%2C%20Fabrication%20Products&utm_term=&utm_content=Adapter%2C%20Breakout%20Boards&gclid=CjwKCAjwzeqVBhAoEiwAOrEmzYhFS21fM-lQxtBldfz6l4nZ0L46poPAZCc7o_-brUIndqC0W6J0NxoCiekQAvD_BwE
+Wire,1,Wire,22 AWG Solid Core,https://www.adafruit.com/product/1311?gclid=CjwKCAjwzeqVBhAoEiwAOrEmzVvgmy_9hp8ac-JzXKNg_D0DuZNdtKCsHRO33mShK4EgwHcqufo7bhoCM6wQAvD_BwE
+Crystal,1,X1,8Mhz,https://www.adafruit.com/product/2213
+Crystal Capacitors,2,"C1,C2",20pF,Included with Crystal
+Reset Button,1,B1,6mm,https://www.adafruit.com/product/367
+Battery,1,Bat,3.7V Li-Ion,https://www.adafruit.com/product/354
+Magnetometer,1,IC4,LIS3MDL,https://www.pololu.com/product/2737
+Header Pins,1,P1,,https://www.adafruit.com/product/3002
+Prog Capacitor,1,C3,.1 uF,https://www.adafruit.com/product/753
+Coin Battery,1,B2,CR1220,https://www.adafruit.com/product/380
+Proto Board,1,Board,Perma-Proto,https://www.adafruit.com/product/1609
