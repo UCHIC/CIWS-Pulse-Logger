@@ -20,27 +20,27 @@ These instructions use the reference names in the parts csv. The hole identifier
 11. Attach C3 to B1 and B4.
 12. Place B2 into the battery holder on IC2.
 13. Connect the following positions with wire.
-*GND,J7
-- VCC,J9
+- GND-J7
+- VCC-J9
 - GND-J17
--VCC-J15
--GND-J28
--VCC-J26
--J11-I29
--I10-H27
--H1-G19
--H12-G25
--H13-G24
--G2-G18
--F18-D28
--F19-C27
--F22-D6
--F23-C4
--D1-B14
--A7-VCC
--A8-GND
--A29-VCC
--A30-GND
--Connect both positive rails together.
--Connect both negative rails together.
--Connect the pin that's hanging off the board to GND.
+- VCC-J15
+- GND-J28
+- VCC-J26
+- J11-I29
+- I10-H27
+- H1-G19
+- H12-G25
+- H13-G24
+- G2-G18
+- F18-D28
+- F19-C27
+- F22-D6
+- F23-C4
+- D1-B14
+- A7-VCC
+- A8-GND
+- A29-VCC
+- A30-GND
+- Connect both positive rails together.
+- Connect both negative rails together.
+- Connect the pin that's hanging off the board to GND.
