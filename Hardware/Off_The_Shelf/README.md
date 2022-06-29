@@ -5,7 +5,7 @@ Instructions and parts list for a full pulse resolution device.
 See [here.](https://github.com/UCHIC/CIWS-Pulse-Logger/blob/main/Hardware/Off_The_Shelf/Full_Res_Board.csv)
 
 ## Instructions
-These instructions use the reference names in the parts csv. The hole identifies are printed on the board. Solder each part into the position specified.
+These instructions use the reference names in the parts csv. The hole identifiers are printed on the board. Solder each part into the position specified.
 
 1. Attach pin 1 of IC1 to E1 on the Board.
 2. Attach IC2 pins GND to E30 and SQW to E26.
@@ -20,7 +20,7 @@ These instructions use the reference names in the parts csv. The hole identifies
 11. Attach C3 to B1 and B4.
 12. Place B2 into the battery holder on IC2.
 13. Connect the following positions with wire.
--GND-J7
+*GND-J7
 -VCC-J9
 -GND-J17
 -VCC-J15
